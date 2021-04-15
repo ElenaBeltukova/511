@@ -7,8 +7,8 @@ public class task_1_3 {
         int b = 2;
         String s = "abs";
 
-        System.out.print(a);
-        System.out.print(b);
-        System.out.print(s);
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(s);
     }
 }
