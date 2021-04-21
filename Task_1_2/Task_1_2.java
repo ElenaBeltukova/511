@@ -5,7 +5,7 @@
 */
 // Пример комментария
 
-public class task_1_2 {
+public class Task_1_2 {
     public static void main(String[] args) {
         int a = 3;
         int b = 2;
