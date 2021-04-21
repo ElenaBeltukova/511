@@ -31,22 +31,23 @@ public class Person {
     public String getInfo(){
         String info = "";
         info += "Меня зовут: " + this.getName() + "\n";
-        info += "Имя моей мамы: " + this.getMother().getName() + "\n";
-        info += "Имя моего папы: " + this.getFather().getName() + "\n";
+        if (this.mother != null) info += "Имя моей мамы: " + this.getMother().getName() + "\n";
+        if (this.father != null) info += "Имя моего папы: " + this.getFather().getName() + "\n";
 
-        if (this.getFather().getMother() != null && this.getMother().getMother() != null) {
+
+        if (this.mother != null && this.father != null && this.getFather().getMother() != null && this.getMother().getMother() != null) {
             info += "У меня две бабушки: " + this.getFather().getMother().getName() + " и " + this.getMother().getMother().getName() + "\n";
-        } else if (this.getFather().getMother() != null) {
+        } else if (this.father != null && this.getFather().getMother() != null) {
             info += "Имя моей бабушки: " + this.getFather().getMother().getName() + "\n";
-        } else if (this.getMother().getMother() != null) {
+        } else if (this.mother != null && this.getMother().getMother() != null) {
             info += "Имя моей бабушки: " + this.getMother().getMother().getName() + "\n";
         }
 
-        if (this.getFather().getFather() != null && this.getMother().getFather() != null) {
+        if (this.mother != null && this.father != null && this.getFather().getFather() != null && this.getMother().getFather() != null) {
             info += "У меня два деда: " + this.getFather().getFather().getName() + " и " + this.getMother().getFather().getName() + "\n";
-        } else if (this.getFather().getFather() != null) {
+        } else if (this.father != null && this.getFather().getFather() != null) {
             info += "Имя моего деда: " + this.getFather().getFather().getName() + "\n";
-        } else if (this.getMother().getFather() != null) {
+        } else if (this.mother != null && this.getMother().getFather() != null) {
             info += "Имя моего деда: " + this.getMother().getFather().getName() + "\n";
         }
 
