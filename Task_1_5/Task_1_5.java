@@ -10,7 +10,7 @@ TF = (9 / 5) * TC + 32
 105.8 */
 
 import java.util.Scanner;
-public class task_1_5 {
+public class Task_1_5 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int TC = scan.nextInt();
