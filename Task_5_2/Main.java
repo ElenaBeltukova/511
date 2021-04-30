@@ -22,25 +22,22 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Map<String, ArrayList> family = new HashMap<>();
-
+        ArrayList<Persons> family = new ArrayList<>();
+        boolean flag = false;
         int i = 0;
-        String city = "", name = "";
+        String city = "", surname = "";
         while (true) {
             String scan = scanner.nextLine();
 
             if (i%2 == 0) {
                 city = scan;
             } else {
-                name = scan;
-                List<String> surname = new ArrayList<>();
-                surname.add(name);
-                if (!family.containsKey(city)) {
-                    family.put(city, (ArrayList) surname);
-                } else {
-                    family.get(city).add(name);
-                }
-                name = "";
+                surname = scan;
+
+                Persons f = new Persons(surname, city);
+                family.add(f);
+
+                surname = "";
                 city = "";
             }
             i++;
@@ -50,16 +47,18 @@ public class Main {
             }
         }
 
-        //System.out.println(family);
-
         //Read the city
         System.out.println("Введите город: ");
         String citySearch = scanner.nextLine();
 
-        if (family.containsKey(citySearch)) {
-            System.out.println(family.get(citySearch));
-        } else {
-            System.out.println("Такого города нет в списке");
+        for (Persons f:family) {
+            if (f.getCity().equals(citySearch)) {
+                System.out.println(f.getSurname());
+                flag = true;
+            }
         }
+
+        if (!flag) System.out.println("В этом городе никто не живет");
+
     }
 }
